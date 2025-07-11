@@ -15,6 +15,8 @@ import { Box, Button, Dialog, DialogTitle, TextField } from '@mui/material'
 import BorderColorIcon from '@mui/icons-material/BorderColor'
 import InfoOutlineIcon from '@mui/icons-material/InfoOutline'
 import { useTheme } from '@/context/theme'
+import BrightnessLowIcon from '@mui/icons-material/BrightnessLow'
+import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh'
 
 export default function Todo() {
 	const { data, info } = useSelector(state => state.todos)
@@ -90,11 +92,12 @@ export default function Todo() {
 			}`}
 		>
 			<Button
-				variant='contained'
+				sx={{ marginLeft:'92%' , marginTop:'20px' }}
+				// variant='contained'
 				onClick={toggleTheme}
 				className='bg-indigo-600 hover:bg-indigo-700 transition-colors duration-300 text-white'
 			>
-				{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+				{theme === 'dark' ? <BrightnessLowIcon /> : <BrightnessHighIcon />}
 			</Button>
 
 			{/* //////////////////////////////////////////// */}
@@ -156,7 +159,11 @@ export default function Todo() {
 									}}
 									key={el.id}
 								>
-									<TableCell sx={{ color: theme == 'dark' ? 'white' : 'black' }} component='th' scope='row'>
+									<TableCell
+										sx={{ color: theme == 'dark' ? 'white' : 'black' }}
+										component='th'
+										scope='row'
+									>
 										{el.id}
 									</TableCell>
 									<TableCell
